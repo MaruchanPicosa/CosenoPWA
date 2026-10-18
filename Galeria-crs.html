@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba CSR</title>
+</head>
+<body>
+    <h2>Portafolio Cosenθ (Versión CSR)</h2>
+    <!-- Observa que este div está vacío. El HTML no tiene datos -->
+    <div id="contenedor-proyectos">
+        <h3 style="color: red;">Cargando proyectos desde la API... (Pantalla en blanco)</h3>
+    </div>
+
+    <script>
+        // Simulamos que JavaScript tarda 2.5 segundos en ir a buscar los datos a una Base de Datos
+        setTimeout(() => {
+            document.getElementById('contenedor-proyectos').innerHTML = `
+                <div style="border: 1px solid black; padding: 20px;">
+                    <h3>Homi</h3>
+                    <p>Portal inmobiliario de alto rendimiento...</p>
+                </div>
+            `;
+        }, 2500);
+    </script>
+</body>
+</html>

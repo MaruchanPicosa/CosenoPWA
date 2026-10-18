@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosen&theta; | Portafolio de Proyectos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a1a">
+    <style>
+        /* Paleta de colores */
+        :root {
+            --azul-principal: #0056b3;
+            --azul-claro: #0d6efd;
+            --oscuro: #1a1a1a;
+            --gris-fondo: #f8f9fa;
+            --texto-muted: #6c757d;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            padding-top: 80px; 
+            background-color: var(--gris-fondo);
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background-color: var(--oscuro);
+            padding: 15px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-custom .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            color: white !important;
+        }
+        .navbar-custom .navbar-brand span {
+            color: var(--azul-claro);
+        }
+        .navbar-custom .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        .navbar-custom .nav-link:hover {
+            color: var(--azul-claro) !important;
+        }
+
+        /* Títulos de Sección */
+        section {
+            padding: 80px 0 100px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-weight: 700; 
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+            color: var(--oscuro);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--texto-muted);
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Tarjetas de Proyectos - Suaves y Dinámicas */
+        .card-proyecto {
+            border: 1px solid rgba(0, 0, 0, 0.05); 
+            border-radius: 12px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background: white;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden; 
+        }
+        
+        .card-proyecto:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img-container {
+            overflow: hidden;
+            background-color: var(--oscuro);
+        }
+        
+        .card-img-top, .card-img-left {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: opacity 0.4s ease, filter 0.4s ease;
+            filter: grayscale(20%);
+        }
+        
+        .card-proyecto:hover .card-img-top,
+        .card-proyecto:hover .card-img-left {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        .img-vertical { height: 240px; }
+        .img-horizontal { height: 100%; min-height: 280px; }
+
+        .card-body {
+            padding: 2rem;
+        }
+        
+        .card-title {
+            font-weight: 700;
+            font-size: 1.4rem; 
+            color: var(--oscuro);
+            margin-bottom: 15px;
+        }
+        
+        /* Enlaces */
+        .link-proyecto {
+            color: var(--azul-principal);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .link-proyecto::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        .link-proyecto:hover {
+            color: var(--azul-claro);
+        }
+        .link-proyecto:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Badges de tecnología */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .badge-tech {
+            background-color: #f1f3f5;
+            color: #495057;
+            font-weight: 500;
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--oscuro);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html#inicio">Cosen<span>&theta;</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html#acerca">ACERCA DE NOSOTROS</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#galeria">GALERÍA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#precios">PRECIOS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">CONTÁCTANOS</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-outline-light mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#loginModal">LOGIN</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="galeria">
+        <div class="container">
+            <h1 class="section-title">Portafolio Técnico</h1>
+            <p class="section-subtitle">Sistemas integrales y arquitecturas de software desarrolladas por el equipo Cosen&theta;, enfocados en escalabilidad, seguridad y rendimiento.</p>
+            
+            <div class="row justify-content-center g-5">
+                
+                <div class="col-12">
+                    <div class="card card-proyecto flex-md-row h-100">
+                        <div class="col-md-5 card-img-container">
+                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-left img-horizontal" alt="Proyecto Homi">
+                        </div>
+                        <div class="card-body col-md-7 d-flex flex-column justify-content-center">
+                            <h3 class="card-title">Homi</h3>
+                            <div class="tech-stack">
+                                <span class="badge-tech">Python</span>
+                                <span class="badge-tech">MySQL</span>
+                                <span class="badge-tech">Ciberseguridad</span>
+                                <span class="badge-tech">Bases de Datos</span>
+                            </div>
+                            <p class="card-text text-muted fs-5">
+                                Portal inmobiliario de alto rendimiento. Su arquitectura cuenta con un diseño estricto de base de datos y un back-end robusto. El proyecto pasó por rigurosas auditorías de ciberseguridad para garantizar la prevención de vulnerabilidades como la Inyección NoSQL y fallos en el control de acceso, asegurando la integridad de la información en todo momento.
+                            </p>
+                            <div>
+                                <a href="#" class="link-proyecto">Ver documentación técnica</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card card-proyecto h-100 d-flex flex-column">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top img-vertical" alt="E-SportHub">
+                        </div>
+                        <div class="card-body d-flex flex-column flex-grow-1">
+                            <h3 class="card-title">E-SportHub</h3>
+                            <div class="tech-stack">
+                                <span class="badge-tech">Flask</span>
+                                <span class="badge-tech">JavaScript</span>
+                                <span class="badge-tech">Dashboards</span>
+                            </div>
+                            <p class="card-text text-muted flex-grow-1">
+                                Plataforma estructurada para la administración de torneos locales de gamers. Cuenta con un dashboard interactivo que permite visualizar estadísticas y gestionar a los participantes en tiempo real mediante un flujo de datos dinámico.
+                            </p>
+                            <a href="#" class="link-proyecto">Explorar plataforma</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card card-proyecto h-100 d-flex flex-column">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top img-vertical" alt="CosenoIA">
+                        </div>
+                        <div class="card-body d-flex flex-column flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h3 class="card-title mb-0">CosenoIA</h3>
+                                <span class="badge bg-primary rounded-1 px-2 py-1">Sprint en progreso</span>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="badge-tech">APIs</span>
+                                <span class="badge-tech">Scrum / Jira</span>
+                                <span class="badge-tech">Auth</span>
+                            </div>
+                            <p class="card-text text-muted flex-grow-1">
+                                Generador de código impulsado por IA gestionado mediante historias de usuario en Jira. Integra un sistema de autenticación seguro mediante Google y control de recursos, permitiendo mantener un registro e historial de los chats generados por cada usuario sin saturar la aplicación.
+                            </p>
+                            <a href="#" class="link-proyecto">Revisar avances</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card card-proyecto h-100 d-flex flex-column">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top img-vertical" alt="TechDomotic">
+                        </div>
+                        <div class="card-body d-flex flex-column flex-grow-1">
+                            <h3 class="card-title">TechDomotic</h3>
+                            <div class="tech-stack">
+                                <span class="badge-tech">IoT</span>
+                                <span class="badge-tech">Hardware</span>
+                                <span class="badge-tech">Sensores</span>
+                            </div>
+                            <p class="card-text text-muted flex-grow-1">
+                                Sistema de hardware y software integrado para la automatización de ambientes. Diseñado para ofrecer monitoreo en tiempo real y control eficiente de los recursos dentro de un ecosistema de hogar inteligente.
+                            </p>
+                            <a href="#" class="link-proyecto">Ver especificaciones</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card card-proyecto h-100 d-flex flex-column">
+                        <div class="card-img-container">
+                            <img src="logo.jpg" class="card-img-top img-vertical" alt="Nekopixel">
+                        </div>
+                        <div class="card-body d-flex flex-column flex-grow-1">
+                            <h3 class="card-title">Nekopixel</h3>
+                            <div class="tech-stack">
+                                <span class="badge-tech">Red Social</span>
+                                <span class="badge-tech">Gestión de Comunidades</span>
+                                <span class="badge-tech">UI/UX</span>
+                            </div>
+                            <p class="card-text text-muted flex-grow-1">
+                                Red social diseñada específicamente para entusiastas del anime, manhwa y los videojuegos. La plataforma permite a los usuarios crear, administrar y participar activamente en comunidades personalizadas, manteniendo un fuerte enfoque en el diseño visual y una experiencia de usuario fluida.
+                            </p>
+                            <a href="#" class="link-proyecto">Ver plataforma</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 12px;">
+                <div class="modal-header bg-dark text-white border-0" style="border-top-left-radius: 12px; border-top-right-radius: 12px;">
+                    <h5 class="modal-title fw-bold">Autenticación de Usuario</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-5">
+                    <form>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-muted">Credenciales de Acceso</label>
+                            <input type="text" class="form-control form-control-lg" placeholder="Usuario" style="border-radius: 8px;">
+                        </div>
+                        <div class="mb-4">
+                            <input type="password" class="form-control form-control-lg" placeholder="Contraseña" style="border-radius: 8px;">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold" style="border-radius: 8px;">Ingresar al Sistema</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p class="mb-0 fs-6 text-white-50">&copy; 2026 Equipo Cosen&theta;. Ingeniería y Desarrollo de Software.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script> 
+    if ('serviceWorker' in navigator) { 
+        window.addEventListener('load', function () { 
+            navigator.serviceWorker.register('./sw.js').then(function (registration) { 
+                console.log('Service Worker registrado con éxito:', registration.scope); 
+            }, function (err) { 
+                console.log('Error al registrar el Service Worker:', err); 
+            }); 
+        }); 
+    } 
+    </script>
+</body>
+</html>

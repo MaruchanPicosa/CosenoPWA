@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosen&theta; | Equipo de Desarrollo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a1a">
+    <style>
+        /* Paleta de colores */
+        :root {
+            --azul-principal: #0056b3;
+            --azul-claro: #0d6efd;
+            --oscuro: #1a1a1a;
+            --gris-claro: #f4f7f6;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        /* Navbar personalizada */
+        .navbar-custom {
+            background-color: var(--oscuro);
+            padding: 15px 0;
+        }
+        .navbar-custom .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            color: white !important;
+        }
+        .navbar-custom .navbar-brand span {
+            color: var(--azul-claro);
+        }
+        .navbar-custom .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .navbar-custom .nav-link:hover {
+            color: var(--azul-claro) !important;
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 100px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            font-size: 2.2rem;
+            color: var(--oscuro);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 5px;
+            background: var(--azul-claro);
+            margin: 15px auto 0;
+        }
+
+        /* Hero / Inicio */
+        #inicio {
+            background: linear-gradient(rgba(26, 26, 26, 0.92), rgba(0, 86, 179, 0.85)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* FAQ Personalizado (Hover effect) */
+        #faq {
+            background-color: var(--gris-claro);
+        }
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: white;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+        }
+        .faq-item:hover {
+            border-left: 5px solid var(--azul-claro);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .faq-pregunta {
+            padding: 30px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--oscuro);
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+        .faq-item:hover .faq-pregunta {
+            color: var(--azul-principal);
+        }
+        /* Icono de flecha en la pregunta */
+        .faq-pregunta::after {
+            content: '▼';
+            font-size: 1rem;
+            color: #999;
+            transition: transform 0.4s ease;
+        }
+        .faq-item:hover .faq-pregunta::after {
+            transform: rotate(180deg);
+            color: var(--azul-claro);
+        }
+        .faq-respuesta {
+            max-height: 0;
+            overflow: hidden;
+            background-color: white;
+            padding: 0 30px;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+        /* La magia del hover aquí */
+        .faq-item:hover .faq-respuesta {
+            max-height: 300px; /* Altura máxima para permitir que baje suave */
+            padding: 0 30px 30px 30px;
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--oscuro);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html#inicio">Cosen<span>&theta;</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html#acerca">ACERCA DE NOSOTROS</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="galeria.html">GALERÍA</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="index.html#precios">PRECIOS</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">CONTÁCTANOS</a></li>
+                    
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-outline-light mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#loginModal">LOGIN</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3 class="faq-pregunta">¿QUÉ INCLUYE LA PRUEBA DEMO?</h3>
+                    <div class="faq-respuesta">
+                        Nuestra prueba demo te da acceso a un entorno aislado donde podrás probar la arquitectura de nuestras soluciones, como el sistema de gestión de Homi, con datos de prueba, para evaluar la velocidad y seguridad de nuestras implementaciones.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-pregunta">INICIAR SESIÓN. ERRORES FRECUENTES</h3>
+                    <div class="faq-respuesta">
+                        Si experimentas errores al iniciar sesión, generalmente se debe a la expiración del token de seguridad o a un bloqueo temporal por múltiples intentos fallidos. Te recomendamos borrar la caché de tu navegador y solicitar un restablecimiento de contraseña.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-pregunta">¿CÓMO GARANTIZAN LA SEGURIDAD DE LOS DATOS?</h3>
+                    <div class="faq-respuesta">
+                        El equipo Cosen&theta; aplica principios estrictos de ciberseguridad desde el inicio. Prevenimos inyecciones NoSQL y aseguramos el control de acceso en cada endpoint de nuestras APIs mediante encriptación de extremo a extremo y validación estricta de usuarios.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-pregunta">¿NECESITAS APOYO CON LA PRUEBA DEMO?</h3>
+                    <div class="faq-respuesta">
+                        Si necesitas asistencia guiada, nuestro equipo de soporte técnico está disponible para programar una reunión y recorrer contigo las funcionalidades del dashboard y las integraciones de bases de datos que hemos desarrollado.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-dark text-white border-0">
+                    <h5 class="modal-title fw-bold">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-5">
+                    <form>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Usuario</label>
+                            <input type="text" class="form-control form-control-lg">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Contraseña</label>
+                            <input type="password" class="form-control form-control-lg">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">Entrar a la Plataforma</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p class="mb-0 fs-5">&copy; 2026 Equipo Cosen&theta;. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script> 
+    if ('serviceWorker' in navigator) { 
+        window.addEventListener('load', function () { 
+            navigator.serviceWorker.register('./sw.js').then(function (registration) { 
+                console.log('Service Worker registrado con éxito:', registration.scope); 
+            }, function (err) { 
+                console.log('Error al registrar el Service Worker:', err); 
+            }); 
+        }); 
+    } 
+    </script>
+</body>
+</html>
